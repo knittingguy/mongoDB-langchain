@@ -70,8 +70,9 @@ export async function callAgent(client: MongoClient, query: string, thread_id: s
    // const toolNode = new ToolNode<any>(tools);
 
   const model = new ChatAnthropic({
-    model: "claude-3-5-sonnet-20240620",
-    temperature: 0,
+    model: "claude-sonnet-4-5-20250929",
+    topP: 0.9,
+	invocationKwargs: { temperature: undefined },
   }).bindTools(tools);
 
   // Define the function that determines whether to continue or not
